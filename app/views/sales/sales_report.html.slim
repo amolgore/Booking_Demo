@@ -1,0 +1,15 @@
+br
+= link_to 'back',:back, class: 'btn btn-primary'
+h3
+  =@sales_type 
+  |  Report
+- if @report.present?
+  - @report.each do |report|
+    label
+      strong
+        = report.first 
+        |  : 
+      = number_to_currency(report.second,unit: "Rs ")
+    br
+- else
+  p No Sales Report Found
